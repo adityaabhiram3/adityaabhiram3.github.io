@@ -31,7 +31,6 @@ export const personalSnapshot = [
 ];
 
 export const stats = [
-  { value: '3.84/4.33', label: 'PhD GPA' },
   { value: '2', label: 'Ongoing projects' },
   { value: '4', label: 'Core research themes' },
   { value: '6', label: 'Languages in daily use' },
