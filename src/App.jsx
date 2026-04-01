@@ -179,8 +179,6 @@ function HomePage() {
           </article>
         ))}
       </div>
-      <SectionHeading title="Selected projects" description="Research artifacts and accepted systems work." />
-      <ProjectGrid limit={3} />
     </>
   );
 }
