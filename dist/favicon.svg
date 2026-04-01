@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="AP portfolio mark">
+  <defs>
+    <linearGradient id="g" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f0a36b" />
+      <stop offset="1" stop-color="#5bd1c2" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="32" fill="#0d141a" />
+  <circle cx="64" cy="64" r="42" fill="none" stroke="url(#g)" stroke-width="10" />
+  <path d="M40 86V42h23.5c10.5 0 18 7.2 18 17.1 0 9.8-7.6 16.9-18 16.9H52v10H40Zm12-22h10.5c4.8 0 8-3 8-7.8 0-4.7-3.2-7.7-8-7.7H52V64Z" fill="#ecf1f4" />
+</svg>
