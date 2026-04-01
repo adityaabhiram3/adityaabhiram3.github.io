@@ -15,6 +15,26 @@ npm run dev
 npm run build
 ```
 
+## Publish After Valid Changes
+
+Use this after your changes are committed on `main`:
+
+```bash
+npm run publish:site
+```
+
+What it does:
+
+1. Verifies you are on `main` with a clean working tree.
+2. Builds the site.
+3. Pushes `main`.
+4. Publishes `dist` to `gh-pages` and force-pushes that branch.
+
+Requirements:
+
+- Node.js 18+
+- Git auth already configured for push access to origin
+
 ## GitHub Pages
 
 1. Create a GitHub repository for this project.
