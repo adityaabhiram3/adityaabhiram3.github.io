@@ -32,7 +32,7 @@ export const personalSnapshot = [
 
 export const stats = [
   { value: '3.84/4.33', label: 'PhD GPA' },
-  { value: '2', label: 'Accepted papers' },
+  { value: '2', label: 'Ongoing projects' },
   { value: '4', label: 'Core research themes' },
   { value: '6', label: 'Languages in daily use' },
 ];
@@ -145,8 +145,8 @@ export const researchWordCloud = [
   {
     label: 'Operating Systems',
     weight: 10,
-    x: 24,
-    y: 42,
+    x: 28,
+    y: 44,
     cluster: 'Systems Fundamentals',
     note: 'Resource management, isolation, and system-level control across software and hardware.',
     relatedProjects: ['Range-Blocks', 'CATALYST'],
@@ -154,8 +154,8 @@ export const researchWordCloud = [
   {
     label: 'Distributed Systems',
     weight: 9,
-    x: 42,
-    y: 28,
+    x: 39,
+    y: 32,
     cluster: 'Systems Fundamentals',
     note: 'Coordination, communication, and consistency across networked compute environments.',
     relatedProjects: ['CATALYST', 'Loom'],
@@ -163,8 +163,8 @@ export const researchWordCloud = [
   {
     label: 'Concurrency Control',
     weight: 8,
-    x: 30,
-    y: 60,
+    x: 34,
+    y: 54,
     cluster: 'Systems Fundamentals',
     note: 'Mechanisms for correctness and scalability under parallel and concurrent execution.',
     relatedProjects: ['Range-Blocks', 'CATALYST'],
@@ -172,7 +172,7 @@ export const researchWordCloud = [
   {
     label: 'Scheduling',
     weight: 8,
-    x: 12,
+    x: 20,
     y: 56,
     cluster: 'Systems Fundamentals',
     note: 'Assigning work and resources efficiently across cores, nodes, and heterogeneous units.',
@@ -181,8 +181,8 @@ export const researchWordCloud = [
   {
     label: 'Computer Architecture',
     weight: 9,
-    x: 60,
-    y: 24,
+    x: 57,
+    y: 30,
     cluster: 'Architecture and Memory',
     note: 'Design and evaluation of processors, pipelines, and hardware/software interfaces.',
     relatedProjects: ['METAL', 'Range-Blocks'],
@@ -190,8 +190,8 @@ export const researchWordCloud = [
   {
     label: 'Memory Hierarchy',
     weight: 7,
-    x: 72,
-    y: 42,
+    x: 63,
+    y: 44,
     cluster: 'Architecture and Memory',
     note: 'Latency, bandwidth, and data-placement behavior across cache, DRAM, and far memory.',
     relatedProjects: ['CATALYST', 'METAL'],
@@ -199,8 +199,8 @@ export const researchWordCloud = [
   {
     label: 'Cache Coherence',
     weight: 7,
-    x: 82,
-    y: 58,
+    x: 70,
+    y: 56,
     cluster: 'Architecture and Memory',
     note: 'Coordinating consistent shared-memory views across cores and cache levels.',
     relatedProjects: ['METAL', 'Range-Blocks'],
@@ -208,8 +208,8 @@ export const researchWordCloud = [
   {
     label: 'Parallel Systems',
     weight: 9,
-    x: 58,
-    y: 66,
+    x: 52,
+    y: 60,
     cluster: 'Architecture and Memory',
     note: 'System-level performance and coordination across many-core and accelerator-rich environments.',
     relatedProjects: ['METAL', 'Range-Blocks'],
@@ -217,8 +217,8 @@ export const researchWordCloud = [
   {
     label: 'Performance Engineering',
     weight: 6,
-    x: 66,
-    y: 78,
+    x: 60,
+    y: 70,
     cluster: 'Architecture and Memory',
     note: 'Measurement-driven optimization for throughput, latency, and resource efficiency.',
     relatedProjects: ['Loom', 'CATALYST'],
@@ -226,8 +226,8 @@ export const researchWordCloud = [
   {
     label: 'Runtime Systems',
     weight: 6,
-    x: 34,
-    y: 78,
+    x: 43,
+    y: 72,
     cluster: 'Software Systems',
     note: 'Execution-time adaptation, coordination, and synchronization for complex workloads.',
     relatedProjects: ['CATALYST', 'Range-Blocks'],
@@ -235,8 +235,8 @@ export const researchWordCloud = [
   {
     label: 'Storage Systems',
     weight: 8,
-    x: 18,
-    y: 26,
+    x: 24,
+    y: 28,
     cluster: 'Software Systems',
     note: 'Data organization, indexing, and access-path efficiency for large-scale datasets.',
     relatedProjects: ['Loom', 'CATALYST'],
@@ -244,8 +244,8 @@ export const researchWordCloud = [
   {
     label: 'Networking Systems',
     weight: 7,
-    x: 46,
-    y: 12,
+    x: 47,
+    y: 22,
     cluster: 'Software Systems',
     note: 'Communication-path performance and system behavior in remote/disaggregated environments.',
     relatedProjects: ['CATALYST', 'Loom'],
@@ -253,8 +253,8 @@ export const researchWordCloud = [
   {
     label: 'Fault Tolerance',
     weight: 6,
-    x: 10,
-    y: 72,
+    x: 26,
+    y: 68,
     cluster: 'Software Systems',
     note: 'Designing robust systems that continue operating correctly under failures and perturbations.',
     relatedProjects: ['Range-Blocks', 'CATALYST'],
@@ -262,8 +262,8 @@ export const researchWordCloud = [
   {
     label: 'Compiler Systems',
     weight: 6,
-    x: 84,
-    y: 24,
+    x: 66,
+    y: 26,
     cluster: 'Software Systems',
     note: 'Compiler design for analysis, transformation, and system-level optimization of programs.',
     relatedProjects: ['METAL', 'Loom'],
