@@ -191,6 +191,11 @@ function ResearchPage() {
   const clusters = ['All', ...new Set(researchWordCloud.map((term) => term.cluster))];
   const visibleTerms =
     activeCluster === 'All' ? researchWordCloud : researchWordCloud.filter((term) => term.cluster === activeCluster);
+  const projectByName = useMemo(() => new Map(projects.map((project) => [project.name, project])), []);
+  const activeRelatedProjects = useMemo(
+    () => (activeTerm.relatedProjects || []).map((name) => projectByName.get(name)).filter(Boolean),
+    [activeTerm, projectByName],
+  );
 
   const sizeMap = useMemo(() => {
     const weights = researchWordCloud.map((term) => term.weight);
@@ -247,6 +252,21 @@ function ResearchPage() {
           <span className="project-tag">{activeTerm.cluster}</span>
           <h3>{activeTerm.label}</h3>
           <p>{activeTerm.note}</p>
+          <div className="related-project-section">
+            <h4>Relevant Projects</h4>
+            <div className="related-project-list">
+              {activeRelatedProjects.map((project) => (
+                <article key={project.name} className="related-project-card">
+                  <span className="project-tag">{project.tag}</span>
+                  <h5>{project.name}</h5>
+                  <p>{project.summary}</p>
+                  <a href="#/projects" className="related-project-link">
+                    Open projects page
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
         </article>
       </section>
       <SectionHeading title="Research themes" description="What the portfolio is organized around." />
@@ -273,6 +293,9 @@ function ResearchPage() {
             <span className="project-tag">{publication.venue}</span>
             <h3>{publication.title}</h3>
             <p>{publication.note}</p>
+            <a className="related-project-link" href={publication.url} target="_blank" rel="noreferrer">
+              Read paper
+            </a>
           </article>
         ))}
       </div>

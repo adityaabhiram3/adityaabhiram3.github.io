@@ -589,6 +589,52 @@ button {
   line-height: 1.75;
 }
 
+.related-project-section {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.related-project-section h4 {
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.related-project-list {
+  display: grid;
+  gap: 10px;
+}
+
+.related-project-card {
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface-strong) 68%, transparent);
+}
+
+.related-project-card h5 {
+  margin: 0.45rem 0;
+  font-size: 1rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.related-project-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.related-project-link {
+  display: inline-flex;
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
 .project-card strong {
   display: block;
   margin-top: 0.8rem;
