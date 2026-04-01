@@ -183,6 +183,7 @@ button {
 .theme-grid,
 .timeline,
 .project-grid,
+.personal-grid,
 .skill-cloud,
 .contact-grid,
 .filter-bar {
@@ -305,6 +306,15 @@ button {
   line-height: 1.7;
 }
 
+.personal-note {
+  margin: 1rem 0 0;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  background: color-mix(in srgb, var(--surface-strong) 62%, transparent);
+  border-radius: 12px;
+  color: var(--muted);
+}
+
 .hero-panel {
   display: grid;
   gap: 16px;
@@ -416,10 +426,36 @@ button {
 .theme-grid,
 .project-grid,
 .publication-grid,
+.personal-grid,
 .contact-grid,
 .skill-cloud {
   display: grid;
   gap: 16px;
+}
+
+.personal-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.personal-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.personal-card h3 {
+  margin: 0 0 0.65rem;
+  font-size: 1.15rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.personal-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
 }
 
 .theme-grid {
@@ -475,6 +511,82 @@ button {
   margin: 0;
   line-height: 1.7;
   color: var(--muted);
+}
+
+.wordcloud-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+  gap: 16px;
+}
+
+.cluster-filter {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.wordcloud-canvas {
+  position: relative;
+  min-height: 420px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 25% 20%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 36%),
+    radial-gradient(circle at 75% 70%, color-mix(in srgb, var(--accent-2) 16%, transparent), transparent 32%),
+    color-mix(in srgb, var(--surface) 75%, transparent);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.word-node {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%) scale(var(--scale));
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.38rem 0.7rem;
+  background: color-mix(in srgb, var(--surface-strong) 74%, transparent);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    transform 170ms ease,
+    border-color 170ms ease,
+    box-shadow 170ms ease,
+    background 170ms ease;
+}
+
+.word-node:hover,
+.word-node:focus-visible,
+.word-node.active {
+  transform: translate(-50%, -50%) scale(calc(var(--scale) + 0.08));
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  background: color-mix(in srgb, var(--surface-strong) 90%, var(--accent) 10%);
+}
+
+.wordcloud-detail {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  align-self: stretch;
+}
+
+.wordcloud-detail h3 {
+  margin: 0.8rem 0 0.6rem;
+  font-size: 1.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.wordcloud-detail p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
 }
 
 .project-card strong {
@@ -562,8 +674,10 @@ button {
   .theme-grid,
   .project-grid,
   .publication-grid,
+  .personal-grid,
   .contact-grid,
-  .resume-list-wide {
+  .resume-list-wide,
+  .wordcloud-shell {
     grid-template-columns: 1fr;
   }
 
@@ -594,7 +708,9 @@ button {
   .resume-banner,
   .project-card,
   .theme-card,
-  .contact-card {
+  .contact-card,
+  .wordcloud-detail,
+  .personal-card {
     padding: 18px;
   }
 
@@ -604,5 +720,9 @@ button {
 
   .stat-grid {
     grid-template-columns: 1fr;
+  }
+
+  .wordcloud-canvas {
+    min-height: 360px;
   }
 }

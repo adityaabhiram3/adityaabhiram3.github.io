@@ -5,8 +5,10 @@ import {
   focusAreas,
   heroHighlights,
   navigation,
+  personalSnapshot,
   publications,
   projects,
+  researchWordCloud,
   skills,
   stats,
   timeline,
@@ -142,6 +144,10 @@ function HomePage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
+          <p className="personal-note">
+            I care about making complex architecture and compiler ideas useful in practice, especially for workloads where memory
+            movement matters more than raw compute.
+          </p>
         </div>
         <div className="hero-panel">
           <div className="stat-grid">
@@ -164,6 +170,15 @@ function HomePage() {
       </section>
       <SectionHeading title="Research trajectory" description="A compressed view of the work that led to this portfolio." />
       <TimelinePreview />
+      <SectionHeading title="Beyond the CV" description="A more personal view of how I approach systems research." />
+      <div className="personal-grid">
+        {personalSnapshot.map((item) => (
+          <article className="personal-card" key={item.title}>
+            <h3>{item.title}</h3>
+            <p>{item.detail}</p>
+          </article>
+        ))}
+      </div>
       <SectionHeading title="Selected projects" description="Research artifacts and accepted systems work." />
       <ProjectGrid limit={3} />
     </>
@@ -171,9 +186,69 @@ function HomePage() {
 }
 
 function ResearchPage() {
+  const [activeTerm, setActiveTerm] = useState(researchWordCloud[0]);
+  const [activeCluster, setActiveCluster] = useState('All');
+  const clusters = ['All', ...new Set(researchWordCloud.map((term) => term.cluster))];
+  const visibleTerms =
+    activeCluster === 'All' ? researchWordCloud : researchWordCloud.filter((term) => term.cluster === activeCluster);
+
+  const sizeMap = useMemo(() => {
+    const weights = researchWordCloud.map((term) => term.weight);
+    const min = Math.min(...weights);
+    const max = Math.max(...weights);
+    const map = {};
+
+    researchWordCloud.forEach((term) => {
+      const normalized = (term.weight - min) / (max - min || 1);
+      map[term.label] = 0.88 + normalized * 0.92;
+    });
+
+    return map;
+  }, []);
+
   return (
     <>
       <PageHero />
+      <SectionHeading title="Interactive research map" description="Hover or click terms to inspect what each thread represents." />
+      <section className="wordcloud-shell">
+        <div className="cluster-filter" role="tablist" aria-label="Research clusters">
+          {clusters.map((cluster) => (
+            <button
+              key={cluster}
+              type="button"
+              className={cluster === activeCluster ? 'filter-button active' : 'filter-button'}
+              onClick={() => setActiveCluster(cluster)}
+            >
+              {cluster}
+            </button>
+          ))}
+        </div>
+        <div className="wordcloud-canvas" role="list" aria-label="Interactive research word cloud">
+          {visibleTerms.map((term) => (
+            <button
+              key={term.label}
+              type="button"
+              role="listitem"
+              className={term.label === activeTerm.label ? 'word-node active' : 'word-node'}
+              style={{
+                '--x': `${term.x}%`,
+                '--y': `${term.y}%`,
+                '--scale': sizeMap[term.label],
+              }}
+              onMouseEnter={() => setActiveTerm(term)}
+              onFocus={() => setActiveTerm(term)}
+              onClick={() => setActiveTerm(term)}
+            >
+              {term.label}
+            </button>
+          ))}
+        </div>
+        <article className="wordcloud-detail">
+          <span className="project-tag">{activeTerm.cluster}</span>
+          <h3>{activeTerm.label}</h3>
+          <p>{activeTerm.note}</p>
+        </article>
+      </section>
       <SectionHeading title="Research themes" description="What the portfolio is organized around." />
       <div className="theme-grid">
         {focusAreas.map((item, index) => (
